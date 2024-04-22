@@ -1,11 +1,13 @@
-# React + Vite
+# Mind Map 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Features 
+1) Create Nodes 
+2) On click of Nodes, a toolbar will appear that has the option of editing node name.deleting the node and copy node name
+3) On hovering Node, delete Node option will appear to delete node
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
+## Useful Resources
 
 [Add Nodes](https://reactflow.dev/learn/advanced-use/uncontrolled-flow#updating-nodes-and-edges)
+[onClick Toolbar](https://reactflow.dev/examples/nodes/node-toolbar)
+[delete Nodes](https://reactflow.dev/examples/interaction/context-menu)
+[delete Edge](https://reactflow.dev/examples/edges/delete-edge-on-drop)
