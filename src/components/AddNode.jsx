@@ -8,7 +8,10 @@ import ReactFlow, { useReactFlow,  Panel,
     Position,
     useNodesState,
     useEdgesState,
+    applyNodeChanges,
+    applyEdgeChanges,
     addEdge, } from 'reactflow';
+
 import 'reactflow/dist/style.css';
 
 
@@ -54,8 +57,17 @@ const nodeTypes = {
 
 const AddNode = () => {
 
-    const [nodes, setNodes, onNodesChange] = useNodesState(defaultNodes);
-    const [edges, setEdges, onEdgesChange] = useEdgesState(defaultEdges);
+    const [nodes, setNodes] = useNodesState(defaultNodes);
+    const [edges, setEdges] = useEdgesState(defaultEdges);
+
+    const onNodesChange = useCallback(
+      (changes) => setNodes((nds) => applyNodeChanges(changes, nds)),
+      [],
+    );
+    const onEdgesChange = useCallback(
+      (changes) => setEdges((eds) => applyEdgeChanges(changes, eds)),
+      [],
+    );
     const setPosition = useCallback(
         (pos) =>
           setNodes((nodes) =>
@@ -92,10 +104,10 @@ const AddNode = () => {
   return (
     <div style={{width:'100vw',height:'100vh'}}>
       <ReactFlow
+        nodes={nodes}
         onNodesChange={onNodesChange}
+        edges={edges}
         onEdgesChange={onEdgesChange}
-        defaultNodes={nodes}
-        defaultEdges={edges}
         defaultEdgeOptions={edgeOptions}
         nodeTypes={nodeTypes}
         preventScrolling={false}
